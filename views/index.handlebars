@@ -11,18 +11,26 @@
 
 
 <hr>
+
 <div id='burgerContainer'>
     <div class='row'>
+
         <div id='eaten' class='col-md-6'>
+            <h2>Burgers to be eaten!</h2>
+            <br>
             <ul>
                 {{#each burgers}} {{#unless devoured}}
                 <li>
-                    {{this.id}}. {{this.burger_name}} <button id = 'eatBurgerBtn'>Eat Burger!</button>
+                    {{this.id}}. {{this.burger_name}}
+                    <button data-id='{{this.id}}' data-status='true' class='eatBurgerBtn'>Eat Burger!</button>
                 </li>
                 {{/unless}} {{/each}}
             </ul>
         </div>
+
         <div id='uneaten' class='col-md-6'>
+            <h2>Burgers already eaten!</h2>
+            <br>
             <ul>
                 {{#each burgers}} {{#if devoured}}
                 <li>
@@ -41,9 +49,9 @@
         <input type='text' id='newBurger' name='burger'>
     </div>
     <div id='createBurgerBox' class='form group'>
-        <input type='radio' name='eatNow' value='1' checked> Eat now!
+        <input type='radio' name='eatNow' value='true' checked> Eat now!
         <br>
-        <input type='radio' name='eatNow' value='0'> Meh..eat later.
+        <input type='radio' name='eatNow' value='false'> Meh..eat later.
     </div>
     <div id='createBurgerBox'>
         <button type='submit'>Create the burger!</button>

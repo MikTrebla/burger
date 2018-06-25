@@ -3,7 +3,7 @@ $(function () {
         event.preventDefault();
         var newBurger = {
             burger: $('#newBurger').val().trim(),
-            devoured: $('[name=eatNow]:checked').val().trim()
+            devoured: $('input:radio [name = eatNow]').val()
         };
         $.ajax('/api/burgers', {
                 type: 'POST',
@@ -15,6 +15,26 @@ $(function () {
             });
     });
 
+    $('.eatBurgerBtn').on('click', function (event) {
+        event.preventDefault();
+        var id = $(this).data('id');
+        // console.log(id);
+        var ateBurger = $(this).data('status');
+        console.log(ateBurger)
+        // 
+        var burgerStatus = {
+            devoured: ateBurger
+        }
+        // console.log(burgerStatus);
+        $.ajax('/api/burgers/' + id, {
+                type: 'PUT',
+                data: 'burgerStatus'
+            })
+            .then(function () {
+                console.log('Changed burgerstatus to ' + ateBurger);
+                location.reload();
+            });
+    });
 
 
 

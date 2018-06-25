@@ -18,13 +18,14 @@ var orm = {
         });
     },
 
-    updateOne: function (table, devouredVal, idVal, cb) {
-        var queryString = 'UPDATE ' + table + 'SET devoured = ' + devouredVal + ' WHERE id = ' + idVal;
-        connection.query(queryString, devouredVal, idVal, function (err, results) {
+    updateOne: function (table, devouredVal, id, cb) {
+
+        connection.query('UPDATE ' + table + ' SET devoured =' + devouredVal + ' WHERE id =' + id, function (err, results) {
             if (err) {
-                throw err;
+                console.log(err) ;
             }
             cb(results);
+            console.log(cb(results));
         });
     }
 
