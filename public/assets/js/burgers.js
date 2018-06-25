@@ -28,7 +28,7 @@ $(function () {
         // console.log(burgerStatus);
         $.ajax('/api/burgers/' + id, {
                 type: 'PUT',
-                data: 'burgerStatus'
+                data: burgerStatus
             })
             .then(function () {
                 console.log('Changed burgerstatus to ' + ateBurger);
