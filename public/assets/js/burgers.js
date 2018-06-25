@@ -3,8 +3,9 @@ $(function () {
         event.preventDefault();
         var newBurger = {
             burger: $('#newBurger').val().trim(),
-            devoured: $('input:radio [name = eatNow]').val()
+            devoured: $('form input[type=radio]:checked').val()
         };
+        console.log(newBurger);
         $.ajax('/api/burgers', {
                 type: 'POST',
                 data: newBurger

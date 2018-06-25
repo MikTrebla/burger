@@ -10,10 +10,12 @@ var orm = {
             cb(results);
         });
     },
-    insertOne: function (table, burgerVal, cb) {
+    insertOne: function (table, burgerVal, devouredVal, cb) {
 
-        connection.query('INSERT INTO ' + table + ' (burger_name) VALUES ("' + burgerVal + '")', function (err, results) {
+        connection.query('INSERT INTO ' + table + ' (burger_name, devoured) VALUES ("' + burgerVal + '",' + devouredVal + ')', function (err, results) {
             if (err) throw err;
+            
+            console.log(results);
             cb(results);
         });
     },
@@ -22,7 +24,7 @@ var orm = {
 
         connection.query('UPDATE ' + table + ' SET devoured =' + devouredVal + ' WHERE id =' + id, function (err, results) {
             if (err) {
-                console.log(err) ;
+                console.log(err);
             }
             cb(results);
             console.log(cb(results));
