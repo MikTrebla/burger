@@ -14,32 +14,40 @@
 
 <div id='burgerContainer'>
     <div class='row'>
-
         <div id='eaten' class='col-md-6'>
             <h2>Burgers to be eaten!</h2>
             <br>
-            <ul>
-                {{#each burgers}} {{#unless devoured}}
-                <li>
-                    {{this.id}}. {{this.burger_name}}
-                    <button data-id='{{this.id}}' data-status='true' class='eatBurgerBtn'>Eat Burger!</button>
-                </li>
-                {{/unless}} {{/each}}
-            </ul>
+            <div class='burgerBox'>
+                <ul>
+                    {{#each burgers}} {{#unless devoured}}
+                    <li>
+                        {{this.id}}. {{this.burger_name}}
+                        <button data-id='{{this.id}}' data-status='true' class='eatBurgerBtn'>Eat Burger!</button>
+                    </li>
+                    {{/unless}} {{/each}}
+                </ul>
+            </div>
         </div>
+
 
         <div id='uneaten' class='col-md-6'>
             <h2>Burgers already eaten!</h2>
             <br>
-            <ul>
-                {{#each burgers}} {{#if devoured}}
-                <li>
-                    {{this.id}}. {{this.burger_name}}
-                </li>
-                {{/if}} {{/each}}
-            </ul>
+            <div class='burgerBox'>
+                <ul>
+                    {{#each burgers}} {{#if devoured}}
+                    <li>
+                        {{this.id}}. {{this.burger_name}}
+                    </li>
+                    {{/if}} {{/each}}
+                </ul>
+            </div>
+
         </div>
+
     </div>
+</div>
+</div>
 </div>
 
 <form class='create-form'>
