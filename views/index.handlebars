@@ -1,34 +1,52 @@
-<h1 style='text-align: center;'>Eat the burger!</h1>
+<div id='headerBox'>
+    <h1 style='text-align: center;'>Eat the burger!</h1>
+    <div class='row'>
+        <div class='col-md-4'></div>
+        <div class='col-md-4'>
+            <img src='https://www.spreadshirt.com/image-server/v1/mp/designs/1014878535,width=178,height=178/funny-kawaii-brown-bear-on-a-burger.png'>
+        </div>
+        <div class='col-md-4'></div>
+    </div>
+</div>
 
 
-<br>
 <hr>
 <div id='burgerContainer'>
-    <div id='eaten' style='float: left;'>
-        <ul>
-            {{#each burgers}} {{#unless devoured}}
-            <li>
-                {{this.id}}. {{this.burger_name}}
-            </li>
-            {{/unless}} {{/each}}
-        </ul>
-    </div>
-    <div id='uneaten' style='float: right;'>
-        <ul>
-            {{#each burgers}} {{#if devoured}}
-            <li>
-                {{this.id}}. {{this.burger_name}}
-            </li>
-            {{/if}} {{/each}}
-        </ul>
+    <div class='row'>
+        <div id='eaten' class='col-md-6'>
+            <ul>
+                {{#each burgers}} {{#unless devoured}}
+                <li>
+                    {{this.id}}. {{this.burger_name}} <button id = 'eatBurgerBtn'>Eat Burger!</button>
+                </li>
+                {{/unless}} {{/each}}
+            </ul>
+        </div>
+        <div id='uneaten' class='col-md-6'>
+            <ul>
+                {{#each burgers}} {{#if devoured}}
+                <li>
+                    {{this.id}}. {{this.burger_name}}
+                </li>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
     </div>
 </div>
 
+<form class='create-form'>
 
-<div id='createBurgerBox'>
-    {{!--
-    <form> --}}
-        <textarea name='burger'></textarea>
+    <div id='createBurgerBox' class='form-group'>
+        <label for='newBurger'> What kind of burger do you want to create?</label>
+        <input type='text' id='newBurger' name='burger'>
+    </div>
+    <div id='createBurgerBox' class='form group'>
+        <input type='radio' name='eatNow' value='1' checked> Eat now!
+        <br>
+        <input type='radio' name='eatNow' value='0'> Meh..eat later.
+    </div>
+    <div id='createBurgerBox'>
         <button type='submit'>Create the burger!</button>
-        {{!-- </form> --}}
-</div>
+    </div>
+
+</form>

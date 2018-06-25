@@ -1,0 +1,36 @@
+html * {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    color: royalblue
+    /* font-family: 'Libre Franklin', sans-serif; */
+}
+
+body {
+    background-image: url('https://wallpaperwire.com/wp-content/uploads/2018/03/Tina-Bobs-Burgers-Wallpaper-9.jpg')
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+#burgerContainer {
+    margin: 0 100px;
+}
+
+#eaten {
+    display: block;
+    margin: auto;
+    justify-content: center;
+}
+
+#uneaten {
+    justify-content: center;
+    display: block;
+    margin: auto;
+}
+
+#createBurgerBox {
+    display: flex;
+    justify-content: center;
+}
