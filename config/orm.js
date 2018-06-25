@@ -11,21 +11,21 @@ var orm = {
         });
     },
     insertOne: function (table, burgerVal, cb) {
-        var queryString = 'INSERT INTO ' + table + '(burger_name) VALUES' + '(' + burgerVal + ')';
-        connection.query(queryString, burgerVal, function (err, results) {
-            if (err) {
-                throw err;
-            }
+
+        connection.query('INSERT INTO ' + table + ' (burger_name) VALUES ("' + burgerVal + '")', function (err, results) {
+            if (err) throw err;
             cb(results);
         });
     },
-    updateOne: function (table, devouredVal, idVal, cb) {
-        var queryString = 'UPDATE ' + table + 'SET devoured = ' + devouredVal + ' WHERE id = ' + idVal;
-        connection.query(queryString, devouredVal, idVal, function (err, results) {
+
+    updateOne: function (table, devouredVal, id, cb) {
+
+        connection.query('UPDATE ' + table + ' SET devoured =' + devouredVal + ' WHERE id =' + id, function (err, results) {
             if (err) {
-                throw err;
+                console.log(err) ;
             }
             cb(results);
+            console.log(cb(results));
         });
     }
 

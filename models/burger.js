@@ -6,13 +6,13 @@ var burger = {
             cb(data);
         })
     },
-    insertOne: function (burgerVal, cb) {
-        orm.insertOne('burgers', burgerVal, function (data) {
+    insertOne: function (cols, burgerVal, cb) {
+        orm.insertOne('burgers', cols, burgerVal, function (data) {
             cb(data);
         })
     },
-    updateOne: function (devouredVal, idVal, cb) {
-        orm.updateOne('burgers', devouredVal, idVal, function (data) {
+    updateOne: function (devouredVal, id, cb) {
+        orm.updateOne('burgers', devouredVal, id, function (data) {
             cb(data);
         })
     }
